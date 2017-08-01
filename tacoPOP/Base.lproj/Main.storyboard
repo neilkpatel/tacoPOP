@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USs-E4-yZ9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USs-E4-yZ9" customClass="HeaderView" customModule="tacoPOP" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Taco-POP" translatesAutoresizingMaskIntoConstraints="NO" id="KUW-lP-4G0">
-                                        <rect key="frame" x="53" y="13" width="269" height="55"/>
+                                        <rect key="frame" x="53" y="17.5" width="269" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="jqe-QH-44b"/>
                                             <constraint firstAttribute="width" constant="269" id="v3h-Xd-oK5"/>
@@ -34,19 +35,38 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="KUW-lP-4G0" firstAttribute="centerY" secondItem="USs-E4-yZ9" secondAttribute="centerY" id="ew7-ge-9Ls"/>
+                                    <constraint firstItem="KUW-lP-4G0" firstAttribute="centerY" secondItem="USs-E4-yZ9" secondAttribute="centerY" constant="5" id="ew7-ge-9Ls"/>
                                     <constraint firstAttribute="height" constant="80" id="gaE-gs-XFS"/>
                                     <constraint firstItem="KUW-lP-4G0" firstAttribute="centerX" secondItem="USs-E4-yZ9" secondAttribute="centerX" id="qXz-X4-Td7"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hAN-dN-uWf">
+                                <rect key="frame" x="16" y="100" width="343" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V4A-nN-vwD">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hAN-dN-uWf" secondAttribute="trailing" id="Vw3-a4-KlS"/>
                             <constraint firstItem="USs-E4-yZ9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y4E-ob-DkW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hAN-dN-uWf" secondAttribute="bottom" constant="20" id="g5Y-SS-hQR"/>
                             <constraint firstItem="USs-E4-yZ9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hb2-Dh-jzY"/>
+                            <constraint firstItem="hAN-dN-uWf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="i7F-0p-VKS"/>
+                            <constraint firstItem="hAN-dN-uWf" firstAttribute="top" secondItem="USs-E4-yZ9" secondAttribute="bottom" constant="20" id="iPa-op-0lu"/>
                             <constraint firstAttribute="trailing" secondItem="USs-E4-yZ9" secondAttribute="trailing" id="xQN-Ee-5c9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="hAN-dN-uWf" id="wJH-bl-Vhd"/>
+                        <outlet property="headerView" destination="USs-E4-yZ9" id="ZxA-1m-iqG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
